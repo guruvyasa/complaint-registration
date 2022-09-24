@@ -8,6 +8,22 @@
 </head>
 <body>
     <h1>Welcome {{user[1]}}</h1>
+
+    <form action="/complaint" method="post">
+        <select name="department" id="dpt">
+            {% for department in departments %}
+            <option value="{{department[0]}}">{{department[1]}}</option>
+            {% endfor %}
+        </select>
+        <textarea name="description" id="desc" cols="30" rows="10" placeholder="Description">
+        </textarea>
+        <button>Submit</button>
+    </form>
     <a href="/logout">Logout</a>
+    <script>
+        {% if status %}
+        alert("{{status}}")
+        {% endif %}
+    </script>
 </body>
 </html>

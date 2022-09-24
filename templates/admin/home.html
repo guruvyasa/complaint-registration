@@ -8,6 +8,26 @@
 </head>
 <body>
     <h1>Welcome admin</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>department</th>
+                <th>description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for complaint in complaints %}
+            <tr>
+                <td>{{complaint[0]}}</td>
+                <td>{{complaint[1]}}</td>
+                <td>{{complaint[2]}}</td>
+                <td>{{complaint[3]}}</td>                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <a href="/logout">Logout</a>
 
 </body>

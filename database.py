@@ -58,9 +58,10 @@ def addComplaint(id,user_id,dept_id,description,complaint_date):
         query='''insert into complaint(id,user_id,dept_id,description,complaint_date)values(?,?,?,?,?)'''
         conn.execute(query,(id,user_id,dept_id,description,complaint_date))
         conn.commit()
-        print("Table Complaint Added")
+        return  "Table Complaint Added"
     except Exception as e:
         print(e)
+        return "failure"
 
 def getUser(phone, password):
     try:
@@ -95,11 +96,12 @@ def getDept():
 def getComplaint():
     try:
         conn=sqlite3.connect("data.db")
-        query=''' select * from complaint'''
+        query=''' select complaint.id,user.name,department.name,description,complaint_date from complaint inner join department on complaint.dept_id = department.id inner join user on user.id = complaint.user_id'''
         users=conn.execute(query)
         return users.fetchall()
     except Exception as e:
         print(e)
+        return []
 
 
 if __name__=='__main__':

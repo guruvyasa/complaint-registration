@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form action="/register" method="post">
+        <input type="text" name="username" id="uname" placeholder="name">
+        <input type="text" name="phone" id="phone" placeholder="phone">
+        <input type="password" name="password" id="pass" placeholder="password">
+        <button>Register</button>
+
+    </form>
+    <script>
+        {% if status %}
+        alert("{{status}}")
+        {% endif %}
+    </script>
+</body>
+</html>
